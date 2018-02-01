@@ -999,8 +999,6 @@ class ConnectionPool(object):
             except ConnectionError:
                 # Connection is unusable, close it and move on.
                 connection.disconnect()
-                if connection in self._available_connections:
-                    self._available_connections.remove(connection)
         self._in_use_connections.add(connection)
         return connection
 
